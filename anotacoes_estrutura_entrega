@@ -1,0 +1,17 @@
+estrutura final do trabalho:
+
+discussão do metodo do estado da arte
+	replica
+	analise de variações
+	criticas (incluindo teste com outras formas de tendencia da serie temporal)
+	(extra) tentar fazer estado da arte funcionar sem tomar dados com motor
+	
+chebychev (deixa de ser útil se conseguir fazer estado da arte sem motor)
+	fazer chebychev puro
+	fazer chebuchev com media movel do polinomio para imitar o estado da arte
+
+redes neurais
+	fazer visualizações para comparar
+	treinar modelo com dados gerados com as maos para mostrar praticidade
+
+(opcional) chebychev para gerar dados fake e treinar rede neural

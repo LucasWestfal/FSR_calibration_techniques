@@ -13,13 +13,13 @@
 #include "HX711.h"
 
 // HX711 circuit wiring
-const int LOADCELL_DOUT_PIN = A1;
-const int LOADCELL_SCK_PIN = A0;
+const int LOADCELL_DOUT_PIN = 2;
+const int LOADCELL_SCK_PIN = 3;
 
 HX711 scale;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(57600);
   Serial.println("HX711 Demo");
   Serial.println("Initializing the scale");
 
@@ -39,9 +39,9 @@ void setup() {
   Serial.println(scale.get_units(5), 1);  // print the average of 5 readings from the ADC minus tare weight (not set) divided
             // by the SCALE parameter (not set yet)
             
-  //scale.set_scale(-459.542);
+  scale.set_scale(-430.882);
   //scale.set_scale(-471.497);                      // this value is obtained by calibrating the scale with known weights; see the README for details
-  //scale.tare();               // reset the scale to 0
+  scale.tare();               // reset the scale to 0
 
   Serial.println("After setting up the scale:");
 
@@ -65,9 +65,7 @@ void loop() {
   Serial.print("one reading:\t");
   Serial.print(scale.get_units(), 1);
   Serial.print("\t| average:\t");
-  Serial.println(scale.get_units(2), 5);
+  Serial.println(scale.get_units(10), 5);
 
-  delay(100);
+  delay(10);
 }
-
-

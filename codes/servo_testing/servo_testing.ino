@@ -1,30 +1,30 @@
 #include <Servo.h> //INCLUSÃO DA BIBLIOTECA NECESSÁRIA
  
-const int pinoServo = 3; //PINO DIGITAL UTILIZADO PELO SERVO  
- 
-// constants won't change. They're used here to set pin numbers:
-const int buttonPin = 10;  // the number of the pushbutton pin
-// variables will change:
-int buttonState = 0;  // variable for reading the pushbutton status
+const int pinoServo = 5; //PINO DIGITAL UTILIZADO PELO SERVO  
 
 Servo s; //OBJETO DO TIPO SERVO
-int pos; //POSIÇÃO DO SERVO
  
+int intensity = -10;
+int time_on = 17000;
+int time_off = 10000;
+
 void setup (){
   s.attach(pinoServo); //ASSOCIAÇÃO DO PINO DIGITAL AO OBJETO DO TIPO SERVO
-  s.write(0); //INICIA O MOTOR NA POSIÇÃO 0º
-  pinMode(buttonPin, INPUT);
+  s.write(90); //INICIA O MOTOR NA POSIÇÃO 0º
+  delay(1000);
 }
 void loop(){
-  int i = 0;
 
-  buttonState = digitalRead(buttonPin);
+  s.write(90+intensity);
+  delay(time_on);
 
-  if(buttonState == HIGH) {
-    i++;
-    i = i%180;
-    delay(50);
-  }
+  s.write(90);
+  delay(time_off);
+  
+  s.write(90-intensity);
+  delay(time_on);
 
-  s.write(i);
+  s.write(90);
+  delay(time_off);
+
 }

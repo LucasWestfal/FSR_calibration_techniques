@@ -64,6 +64,7 @@ void setup() {
 void loop() {
   Serial.print(analogRead(fsrPin));
   Serial.print(" - ");
-  Serial.println(scale.get_units(2), 5);
-  delay(10);
+  //Serial.println(scale.get_units(2), 5);
+  //delay(10);
+  Serial.println(scale.get_units(1), 5);
 }

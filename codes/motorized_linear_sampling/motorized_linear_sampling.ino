@@ -80,11 +80,14 @@ void loop() {
   
   Serial.print(analogRead(fsrPin));
   Serial.print(" - ");
-  measure = scale.get_units(2);
+  measure = scale.get_units(1);
   Serial.println(measure, 5);
-  delay(10);
   
-  if(measure > 550){
+  if(measure > 520&& direction == 1){
     direction = -1;
+  }
+
+  if(measure <= 0 && direction == -1){
+    direction = 0;
   }
 }
